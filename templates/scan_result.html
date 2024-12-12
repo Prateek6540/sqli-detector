@@ -1,0 +1,24 @@
+<!-- templates/scan_result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <title>Scan Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Scan Results</h1>
+        <ul class="scan-steps">
+            {% for step in steps_output %}
+                <li class="status-{{ step.status }}">
+                    <p>{{ step.message }}</p>
+                    {% if step.html_code %}
+                        <pre class="code">{{ step.html_code }}</pre>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
